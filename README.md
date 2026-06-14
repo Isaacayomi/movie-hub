@@ -1,6 +1,6 @@
 # MovieHub — Movie Discovery Dashboard
 
-A modern movie discovery dashboard web application.
+A modern movie discovery web application.
 
 ## Tech Stack
 
