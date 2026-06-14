@@ -1,6 +1,6 @@
-import { useQuery } from '@tanstack/react-query';
-import { omdbApi } from '../lib/api/omdb';
-import { queryKeys } from '../lib/queryKeys';
+import { useQuery } from "@tanstack/react-query";
+import { omdbApi } from "../lib/api/omdb";
+import { queryKeys } from "../lib/queryKeys";
 
 export function useMovieDetail(id: string) {
   return useQuery({

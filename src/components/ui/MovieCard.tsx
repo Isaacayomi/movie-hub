@@ -1,8 +1,8 @@
-import type { MouseEvent } from 'react';
-import { Link } from 'react-router-dom';
-import { Star, Heart, Film } from 'lucide-react';
-import type { Movie } from '../../types/movie';
-import { useFavorites } from '../../hooks/useFavorites';
+import type { MouseEvent } from "react";
+import { Link } from "react-router-dom";
+import { Star, Heart, Film } from "lucide-react";
+import type { Movie } from "../../types/movie";
+import { useFavorites } from "../../hooks/useFavorites";
 
 interface MovieCardProps {
   movie: Movie;
@@ -14,7 +14,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
 
   const releaseYear = movie.release_date
     ? movie.release_date.match(/\d{4}/)?.[0] || movie.release_date
-    : 'N/A';
+    : "N/A";
 
   const imageUrl = movie.poster_path;
 
@@ -52,14 +52,14 @@ export default function MovieCard({ movie }: MovieCardProps) {
           onClick={handleFavoriteClick}
           className={`absolute top-3 right-3 p-2.5 rounded-xl backdrop-blur-md transition-all duration-300 active:scale-90 shadow-sm ${
             favorited
-              ? 'bg-rose-500 text-white shadow-rose-500/20'
-              : 'bg-white/80 text-slate-600 hover:bg-white hover:text-rose-500'
+              ? "bg-rose-500 text-white shadow-rose-500/20"
+              : "bg-white/80 text-slate-600 hover:bg-white hover:text-rose-500"
           }`}
-          aria-label={favorited ? 'Remove from favorites' : 'Add to favorites'}
+          aria-label={favorited ? "Remove from favorites" : "Add to favorites"}
         >
           <Heart
             className={`w-4 h-4 transition-transform ${
-              favorited ? 'fill-current scale-110' : ''
+              favorited ? "fill-current scale-110" : ""
             }`}
           />
         </button>
@@ -67,7 +67,9 @@ export default function MovieCard({ movie }: MovieCardProps) {
         {/* Rating Badge Overlay */}
         <div className="absolute bottom-3 left-3 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-900/80 backdrop-blur-md text-white text-xs font-bold shadow-sm">
           <Star className="w-3.5 h-3.5 fill-amber-400 stroke-amber-400" />
-          <span>{movie.vote_average ? movie.vote_average.toFixed(1) : '0.0'}</span>
+          <span>
+            {movie.vote_average ? movie.vote_average.toFixed(1) : "0.0"}
+          </span>
         </div>
       </div>
 
@@ -76,7 +78,9 @@ export default function MovieCard({ movie }: MovieCardProps) {
         <h4 className="font-semibold text-sm text-slate-800 line-clamp-1 group-hover:text-accent transition-colors leading-tight mb-1">
           {movie.title}
         </h4>
-        <span className="text-xs text-slate-400 font-medium">{releaseYear}</span>
+        <span className="text-xs text-slate-400 font-medium">
+          {releaseYear}
+        </span>
       </div>
     </Link>
   );

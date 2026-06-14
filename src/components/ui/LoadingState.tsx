@@ -1,12 +1,15 @@
-import { Loader2 } from 'lucide-react';
+import { Loader2 } from "lucide-react";
 
 interface LoadingStateProps {
-  variant?: 'spinner' | 'grid' | 'row';
+  variant?: "spinner" | "grid" | "row";
   count?: number;
 }
 
-export default function LoadingState({ variant = 'spinner', count = 8 }: LoadingStateProps) {
-  if (variant === 'grid') {
+export default function LoadingState({
+  variant = "spinner",
+  count = 8,
+}: LoadingStateProps) {
+  if (variant === "grid") {
     return (
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 animate-pulse">
         {Array.from({ length: count }).map((_, i) => (
@@ -20,7 +23,7 @@ export default function LoadingState({ variant = 'spinner', count = 8 }: Loading
     );
   }
 
-  if (variant === 'row') {
+  if (variant === "row") {
     return (
       <div className="flex gap-6 overflow-x-hidden animate-pulse py-2">
         {Array.from({ length: 5 }).map((_, i) => (

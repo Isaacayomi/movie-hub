@@ -1,12 +1,12 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
-import Layout from './components/layout/Layout';
-import HomePage from './pages/HomePage';
-import SearchPage from './pages/SearchPage';
-import MovieDetailPage from './pages/MovieDetailPage';
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import HomePage from "./pages/HomePage";
+import SearchPage from "./pages/SearchPage";
+import MovieDetailPage from "./pages/MovieDetailPage";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Layout />,
     children: [
       {
@@ -14,15 +14,15 @@ export const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: 'search',
+        path: "search",
         element: <SearchPage />,
       },
       {
-        path: 'movie/:id',
+        path: "movie/:id",
         element: <MovieDetailPage />,
       },
       {
-        path: '*',
+        path: "*",
         element: <Navigate to="/" replace />,
       },
     ],

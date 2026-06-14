@@ -1,33 +1,39 @@
-import { Link, useLocation } from 'react-router-dom';
-import { Home, Flame, Star, Calendar, Film } from 'lucide-react';
+import { Link, useLocation } from "react-router-dom";
+import { Home, Flame, Star, Calendar, Film } from "lucide-react";
 
 export default function Sidebar() {
   const location = useLocation();
 
   const navigationItems = [
-    { 
-      name: 'Home', 
-      path: '/', 
+    {
+      name: "Home",
+      path: "/",
       icon: Home,
-      isActive: location.pathname === '/' 
+      isActive: location.pathname === "/",
     },
-    { 
-      name: 'Popular', 
-      path: '/search?sort_by=popularity.desc', 
+    {
+      name: "Popular",
+      path: "/search?sort_by=popularity.desc",
       icon: Flame,
-      isActive: location.pathname === '/search' && location.search.includes('popularity.desc')
+      isActive:
+        location.pathname === "/search" &&
+        location.search.includes("popularity.desc"),
     },
-    { 
-      name: 'Top Rated', 
-      path: '/search?sort_by=vote_average.desc', 
+    {
+      name: "Top Rated",
+      path: "/search?sort_by=vote_average.desc",
       icon: Star,
-      isActive: location.pathname === '/search' && location.search.includes('vote_average.desc')
+      isActive:
+        location.pathname === "/search" &&
+        location.search.includes("vote_average.desc"),
     },
-    { 
-      name: 'Upcoming', 
-      path: '/search?sort_by=primary_release_date.desc', 
+    {
+      name: "Upcoming",
+      path: "/search?sort_by=primary_release_date.desc",
       icon: Calendar,
-      isActive: location.pathname === '/search' && location.search.includes('primary_release_date.desc')
+      isActive:
+        location.pathname === "/search" &&
+        location.search.includes("primary_release_date.desc"),
     },
   ];
 
@@ -60,13 +66,17 @@ export default function Sidebar() {
                   to={item.path}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 group ${
                     item.isActive
-                      ? 'bg-accent/10 text-accent font-semibold'
-                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                      ? "bg-accent/10 text-accent font-semibold"
+                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                   }`}
                 >
-                  <Icon className={`w-5 h-5 transition-transform duration-200 group-hover:scale-110 ${
-                    item.isActive ? 'text-accent' : 'text-slate-400 group-hover:text-slate-600'
-                  }`} />
+                  <Icon
+                    className={`w-5 h-5 transition-transform duration-200 group-hover:scale-110 ${
+                      item.isActive
+                        ? "text-accent"
+                        : "text-slate-400 group-hover:text-slate-600"
+                    }`}
+                  />
                   {item.name}
                 </Link>
               );
@@ -74,7 +84,6 @@ export default function Sidebar() {
           </nav>
         </div>
       </div>
-
     </aside>
   );
 }

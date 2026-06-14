@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, useEffect } from 'react';
-import type { ReactNode } from 'react';
-import type { Movie } from '../types/movie';
+import { createContext, useContext, useState, useEffect } from "react";
+import type { ReactNode } from "react";
+import type { Movie } from "../types/movie";
 
 interface FavoritesContextType {
   favorites: Movie[];
@@ -8,7 +8,9 @@ interface FavoritesContextType {
   isFavorite: (id: string) => boolean;
 }
 
-const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
+const FavoritesContext = createContext<FavoritesContextType | undefined>(
+  undefined,
+);
 
 export function FavoritesProvider({ children }: { children: ReactNode }) {
   const [favorites, setFavorites] = useState<Movie[]>([]);
@@ -16,7 +18,7 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
   // Load from localStorage on mount
   useEffect(() => {
     try {
-      const stored = localStorage.getItem('moviehub_favorites');
+      const stored = localStorage.getItem("moviehub_favorites");
       if (stored) {
         setFavorites(JSON.parse(stored));
       }
@@ -35,7 +37,7 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
         updated = [...prev, movie];
       }
       try {
-        localStorage.setItem('moviehub_favorites', JSON.stringify(updated));
+        localStorage.setItem("moviehub_favorites", JSON.stringify(updated));
       } catch {
         // Ignore writing errors
       }
@@ -48,7 +50,9 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <FavoritesContext.Provider value={{ favorites, toggleFavorite, isFavorite }}>
+    <FavoritesContext.Provider
+      value={{ favorites, toggleFavorite, isFavorite }}
+    >
       {children}
     </FavoritesContext.Provider>
   );
@@ -57,7 +61,7 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
 export function useFavorites() {
   const context = useContext(FavoritesContext);
   if (!context) {
-    throw new Error('useFavorites must be used within a FavoritesProvider');
+    throw new Error("useFavorites must be used within a FavoritesProvider");
   }
   return context;
 }
