@@ -1,4 +1,4 @@
-# MovieHub — Movie Discovery Dashboard
+# MovieHub — Movie Discovery Web App
 
 A modern movie discovery web application.
 
